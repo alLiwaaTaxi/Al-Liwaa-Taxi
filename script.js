@@ -21,8 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .openPopup();
   });
 
+  alert("Requesting location...");
+
   navigator.geolocation.getCurrentPosition(
     pos => {
+      alert("Location permission granted.");
       const lat = pos.coords.latitude.toFixed(5);
       const lng = pos.coords.longitude.toFixed(5);
       document.getElementById("pickup").value = `${lat},${lng}`;
@@ -30,13 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
         .bindPopup("📍 Pickup")
         .openPopup();
     },
-    () => {
+    error => {
+      alert("Location permission denied or GPS unavailable.");
       document.getElementById("pickup").value = "GPS unavailable";
     }
   );
 
   document.getElementById("rideForm").addEventListener("submit", e => {
     e.preventDefault();
+    alert("Submitting your ride request...");
+
     const ride = {
       name: clientName.value,
       phone: clientPhone.value,
@@ -51,9 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(ride)
     }).then(() => {
+      alert("Ride submitted successfully!");
       rideForm.style.display = "none";
       confirmation.style.display = "block";
       ding.play();
+    }).catch(() => {
+      alert("❌ Error submitting your ride. Please try again.");
     });
   });
 });
