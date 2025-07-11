@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  padding: 15px;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.animated-rgb {
+  background: linear-gradient(270deg, orange, green, white);
+  background-size: 600% 600%;
+  animation: rgbLoop 5s ease infinite;
+}
+
+@keyframes rgbLoop {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+#map {
+  width: 100%;
+  height: 250px;
+  margin-top: 10px;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0 12px;
+  box-sizing: border-box;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 4px 4px 0 0;
+  cursor: pointer;
+}
+
+.rgb-btn {
+  background: linear-gradient(90deg, orange, green, white);
+}
+
+.success {
+  color: green;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ride-card {
+  background: white;
+  padding: 16px;
+  margin: 12px auto;
+  border-radius: 6px;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Liwaa Taxi - Request a Ride</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- 🛡️ Crash patch — loaded first -->
+  <script src="patch.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+</head>
+<body>
+  <header class="banner animated-rgb">🚖 Al Liwaa Taxi</header>
+
+  <main>
+    <form id="rideForm">
+      <label for="clientName">Full Name:</label>
+      <input type="text" id="clientName" required />
+
+      <label for="clientPhone">Phone Number:</label>
+      <input type="text" id="clientPhone" required />
+
+      <label for="pickup">Pickup Location:</label>
+      <input type="text" id="pickup" readonly />
+
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" required />
+
+      <label for="pickupTime">Pickup Time:</label>
+      <input type="time" id="pickupTime" required />
+
+      <div id="map"></div>
+
+      <button type="submit" class="btn rgb-btn">Request Ride</button>
+    </form>
+
+    <p id="confirmation" class="success" style="display:none;">
+      ✔️ Welcome aboard, Liwaa! Your ride request was sent successfully.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
